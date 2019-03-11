@@ -25,7 +25,7 @@ node {
                     }
                     catch (Exception e) {
                         publishBuildRecord gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}", gitRepo: "${GIT_REPO}", result:"FAIL"
-                    }IBM_CLOUD_DEVOPS_API_KEY
+                    }
                 }
                 stage('Unit Test and Code Coverage') {
                     sh 'grunt dev-test-cov --no-color -f'
