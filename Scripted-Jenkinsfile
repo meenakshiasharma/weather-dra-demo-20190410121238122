@@ -9,7 +9,7 @@ node {
             'IBM_CLOUD_DEVOPS_TOOLCHAIN_ID=99106fe8-fae9-4123-bbd5-432dff7e92bc'
     ]) {
         //specify your bluemix credentials, please use "IBM_CLOUD_DEVOPS_CREDS_USR" for usernameVariable, "IBM_CLOUD_DEVOPS_CREDS_PSW" for passwordVariable
-        withCredentials([string(credentialsId: 'YOUR_API_KEY_ID', variable: 'IBM_CLOUD_DEVOPS_API_KEY')]) {
+        withCredentials([string(credentialsId: 'IBM_CLOUD_DEVOPS_API_KEY', variable: 'IBM_CLOUD_DEVOPS_API_KEY')]) {
             // work around to get the git commit id
             def gitCommit = sh(returnStdout: true, script: "git rev-parse HEAD").trim()
             stage('Build') {
@@ -25,7 +25,7 @@ node {
                     }
                     catch (Exception e) {
                         publishBuildRecord gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}", gitRepo: "${GIT_REPO}", result:"FAIL"
-                    }
+                    }IBM_CLOUD_DEVOPS_API_KEY
                 }
                 stage('Unit Test and Code Coverage') {
                     sh 'grunt dev-test-cov --no-color -f'
