@@ -1,5 +1,5 @@
 #!groovy
-node(env.DEFAULT_JENKINS_AGENT) {
+node("any") {
     git url: 'https://github.com/xunrongl/DemoDRA-1.git'
     tool name: 'recent', type: 'nodejs'
 
