@@ -30,7 +30,7 @@ node {
                 stage('Unit Test and Code Coverage') {
                     //sh 'grunt dev-test-cov --no-color -f'
                     // use "publishTestResult" method to publish test result
-                    publishTestResult type:'unittest', fileLocation: './mochatest.json'
+                    publishTestResult type:'unittest', fileLocation: 'mochatest.json'
                     //publishTestResult type:'code', fileLocation: './tests/coverage/reports/coverage-summary.json'
                 }
                 stage('Deploy to Staging') {
@@ -52,7 +52,7 @@ node {
                    // }
 
                     // use "publishTestResult" method to publish test result
-                    publishTestResult type:'fvt', fileLocation: './mochatest.json', environment: 'STAGING'
+                    publishTestResult type:'fvt', fileLocation: 'mochatest.json', environment: 'STAGING'
                 }
                 stage('Gate') {
                     // use "evaluateGate" method to leverage IBM Cloud DevOps gate
