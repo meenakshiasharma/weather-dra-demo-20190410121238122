@@ -56,7 +56,7 @@ node {
                 }
                 stage('Gate') {
                     // use "evaluateGate" method to leverage IBM Cloud DevOps gate
-                    evaluateGate policy: 'Weather App Policy', forceDecision: 'true'
+                    evaluateGate policy: 'test', forceDecision: 'true'
                 }
                 stage('Deploy to Prod') {
                     try {
