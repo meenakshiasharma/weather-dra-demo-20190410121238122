@@ -17,6 +17,7 @@ node {
                          'GIT_BRANCH=master',
                          "GIT_REPO=GIT_REPO_URL_PLACEHOLDER"]) {
                     try {
+                        sh 'ls -l'
                         //sh 'npm install'
                         //sh 'grunt dev-setup --no-color'
 
