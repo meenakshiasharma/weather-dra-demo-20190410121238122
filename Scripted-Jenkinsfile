@@ -57,7 +57,7 @@ node {
                 }
                 stage('Gate') {
                     // use "evaluateGate" method to leverage IBM Cloud DevOps gate
-                    evaluateGate policy: 'test', forceDecision: 'true', applicationName:"Umesh", applicationName:"Umesh"
+                    evaluateGate policy: 'test', forceDecision: 'true', applicationName:"Umesh"
                 }
                 stage('Deploy to Prod') {
                     try {
