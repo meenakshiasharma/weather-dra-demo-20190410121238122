@@ -22,7 +22,7 @@ node {
                         //sh 'grunt dev-setup --no-color'
 
                         // use "publishBuildRecord" method to publish build record
-                        publishBuildRecord gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}", gitRepo: "${GIT_REPO}", result:"SUCCESS", applicationName:"Umesh"
+                        publishBuildRecord gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}", gitRepo: "${GIT_REPO}", result:"SUCCESS", appName:"Umesh"
                     }
                     catch (Exception e) {
                         publishBuildRecord gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}", gitRepo: "${GIT_REPO}", result:"FAIL"
@@ -31,7 +31,7 @@ node {
                 stage('Unit Test and Code Coverage') {
                     //sh 'grunt dev-test-cov --no-color -f'
                     // use "publishTestResult" method to publish test result
-                    publishTestResult type:'unittest', fileLocation: 'utf8-mocha.json', applicationName:"Umesh"
+                    publishTestResult type:'unittest', fileLocation: 'utf8-mocha.json', appName:"Umesh"
                     //publishTestResult type:'code', fileLocation: './tests/coverage/reports/coverage-summary.json'
                 }
                 stage('Deploy to Staging') {
@@ -41,7 +41,7 @@ node {
                                 echo "Deploying...."
                             '''
                         // use "publishDeployRecord" method to publish deploy record
-                        publishDeployRecord environment: "STAGING", appUrl: "http://staging-${IBM_CLOUD_DEVOPS_APP_NAME}.mybluemix.net", result:"SUCCESS", applicationName:"Umesh"
+                        publishDeployRecord environment: "STAGING", appUrl: "http://staging-${IBM_CLOUD_DEVOPS_APP_NAME}.mybluemix.net", result:"SUCCESS", appName:"Umesh"
                     }
                     catch (Exception e) {
                         publishDeployRecord environment: "STAGING", appUrl: "http://staging-${IBM_CLOUD_DEVOPS_APP_NAME}.mybluemix.net", result:"FAIL"
@@ -53,11 +53,11 @@ node {
                    // }
 
                     // use "publishTestResult" method to publish test result
-                    publishTestResult type:'fvt', fileLocation: 'utf8-mocha.json', environment: 'STAGING', applicationName:"Umesh"
+                    publishTestResult type:'fvt', fileLocation: 'utf8-mocha.json', environment: 'STAGING', appName:"Umesh"
                 }
                 stage('Gate') {
                     // use "evaluateGate" method to leverage IBM Cloud DevOps gate
-                    evaluateGate policy: 'test', forceDecision: 'true', applicationName:"Umesh"
+                    evaluateGate policy: 'test', forceDecision: 'true', appName:"Umesh"
                 }
                 stage('Deploy to Prod') {
                     try {
@@ -66,7 +66,7 @@ node {
                                 echo "Deploying...."
                             '''
                         // use "publishDeployRecord" method to publish deploy record
-                        publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-${IBM_CLOUD_DEVOPS_APP_NAME}.mybluemix.net", result:"SUCCESS", applicationName:"Umesh"
+                        publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-${IBM_CLOUD_DEVOPS_APP_NAME}.mybluemix.net", result:"SUCCESS", appName:"Umesh"
                     }
                     catch(Exception e) {
                         publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-${IBM_CLOUD_DEVOPS_APP_NAME}.mybluemix.net", result:"FAIL"
