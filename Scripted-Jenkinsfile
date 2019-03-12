@@ -22,7 +22,7 @@ node {
                         //sh 'grunt dev-setup --no-color'
 
                         // use "publishBuildRecord" method to publish build record
-                        publishBuildRecord gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}", gitRepo: "${GIT_REPO}", result:"SUCCESS"
+                        publishBuildRecord gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}", gitRepo: "${GIT_REPO}", result:"SUCCESS", applicationName:"Umesh"
                     }
                     catch (Exception e) {
                         publishBuildRecord gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}", gitRepo: "${GIT_REPO}", result:"FAIL"
