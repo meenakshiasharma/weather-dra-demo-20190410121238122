@@ -41,7 +41,7 @@ node {
                                 echo "Deploying...."
                             '''
                         // use "publishDeployRecord" method to publish deploy record
-                        publishDeployRecord environment: "STAGING", appUrl: "http://staging-umesh.mybluemix.net", result:"SUCCESS", applicationName: "Umesh"
+                        publishDeployRecord environment: "STAGING", appUrl: "http://staging-umesh.mybluemix.net", result:"SUCCESS"
                     }
                     catch (Exception e) {
                         publishDeployRecord environment: "STAGING", appUrl: "http://staging-umesh.mybluemix.net", result:"FAIL"
