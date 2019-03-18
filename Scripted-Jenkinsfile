@@ -22,7 +22,7 @@ node {
                         //sh 'grunt dev-setup --no-color'
 
                         // use "publishBuildRecord" method to publish build record
-                        publishBuildRecord gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}", gitRepo: "${GIT_REPO}", result:"SUCCESS"
+                        publishBuildRecord gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}", gitRepo: "${GIT_REPO}", result:"SUCCESS", applicationName: "Umesh"
                     }
                     catch (Exception e) {
                         publishBuildRecord gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}", gitRepo: "${GIT_REPO}", result:"FAIL"
@@ -66,7 +66,7 @@ node {
                                 echo "Deploying...."
                             '''
                         // use "publishDeployRecord" method to publish deploy record
-                        publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-umesh.mybluemix.net", result:"SUCCESS"
+                        publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-umesh.mybluemix.net", result:"SUCCESS", applicationName: "Umesh"
                     }
                     catch(Exception e) {
                         publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-umesh.mybluemix.net", result:"FAIL"
