@@ -5,7 +5,7 @@ node {
 
     withEnv([
             // You need to specify 3 required environment variables and your bluemix credentials first, they are going to be used for the following IBM Cloud DevOps steps
-            //'IBM_CLOUD_DEVOPS_APP_NAME=Weather-V1-Scripted',
+            'IBM_CLOUD_DEVOPS_APP_NAME=Weather-V1-Scripted-umesh',
             'IBM_CLOUD_DEVOPS_TOOLCHAIN_ID=99106fe8-fae9-4123-bbd5-432dff7e92bc'
     ]) {
         //specify your bluemix credentials, please use "IBM_CLOUD_DEVOPS_CREDS_USR" for usernameVariable, "IBM_CLOUD_DEVOPS_CREDS_PSW" for passwordVariable
@@ -66,7 +66,7 @@ node {
                                 echo "Deploying...."
                             '''
                         // use "publishDeployRecord" method to publish deploy record
-                        publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-umesh.mybluemix.net", result:"SUCCESS", applicationName: "Umesh"
+                        publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-umesh.mybluemix.net", result:"SUCCESS"
                     }
                     catch(Exception e) {
                         publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-umesh.mybluemix.net", result:"FAIL"
