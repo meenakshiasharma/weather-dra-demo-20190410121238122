@@ -41,10 +41,10 @@ node {
                                 echo "Deploying...."
                             '''
                         // use "publishDeployRecord" method to publish deploy record
-                        publishDeployRecord environment: "STAGING", appUrl: "http://staging-${IBM_CLOUD_DEVOPS_APP_NAME}.mybluemix.net", result:"SUCCESS", applicationName: "Umesh"
+                        publishDeployRecord environment: "STAGING", appUrl: "http://staging-umesh.mybluemix.net", result:"SUCCESS", applicationName: "Umesh"
                     }
                     catch (Exception e) {
-                        publishDeployRecord environment: "STAGING", appUrl: "http://staging-${IBM_CLOUD_DEVOPS_APP_NAME}.mybluemix.net", result:"FAIL"
+                        publishDeployRecord environment: "STAGING", appUrl: "http://staging-umesh.mybluemix.net", result:"FAIL"
                     }
                 }
                 stage('FVT') {
@@ -66,10 +66,10 @@ node {
                                 echo "Deploying...."
                             '''
                         // use "publishDeployRecord" method to publish deploy record
-                        publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-${IBM_CLOUD_DEVOPS_APP_NAME}.mybluemix.net", result:"SUCCESS", applicationName: "Umesh"
+                        publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-umesh.mybluemix.net", result:"SUCCESS", applicationName: "Umesh"
                     }
                     catch(Exception e) {
-                        publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-${IBM_CLOUD_DEVOPS_APP_NAME}.mybluemix.net", result:"FAIL"
+                        publishDeployRecord environment: "PRODUCTION", appUrl: "http://prod-umesh.mybluemix.net", result:"FAIL"
                     }
                 }
             }
