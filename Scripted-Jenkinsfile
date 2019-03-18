@@ -31,7 +31,7 @@ node {
                 stage('Unit Test and Code Coverage') {
                     //sh 'grunt dev-test-cov --no-color -f'
                     // use "publishTestResult" method to publish test result
-                    publishTestResult type:'unittest', fileLocation: 'utf8-mocha.json', applicationName: "Umesh"
+                    publishTestResult type:'unittest', fileLocation: 'utf8-mocha.json'
                     //publishTestResult type:'code', fileLocation: './tests/coverage/reports/coverage-summary.json'
                 }
                 stage('Deploy to Staging') {
